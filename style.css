@@ -114,3 +114,18 @@ body {
     padding: 4px 8px;
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.7));
   }
+
+  /* article layout */
+
+  .article {
+      padding: 0.25rem;
+      margin-bottom: 2rem;
+  }
+
+  .articleTitle > b {
+      color: #c66b3d;
+  }
+
+  span {
+      color: #3a3a3a;
+  }
