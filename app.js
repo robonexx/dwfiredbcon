@@ -21,15 +21,36 @@ const addArticle = (article, id) => {
     articlesList.innerHTML += html
 }
 
-db.collection('articles').get().then((snapshot) => {
-      // the data 
-    
+
+// changing the get method to be real time
+/* db.collection('articles').get().then((snapshot) => { 
     snapshot.docs.forEach(doc => {
         addArticle(doc.data(), doc.id);
     })
 
 }).catch(err => {
     console.log(err)
+}) */
+
+const deleteArticle = (id) => {
+    const articles = document.querySelectorAll('li');
+    articles.forEach(article => {
+        if (article.getAttribute('data-id') === id) {
+            article.remove()
+        }
+    })
+}
+
+db.collection('articles').onSnapshot(snapshot => {
+    snapshot.docChanges().forEach(update => {
+        const doc = update.doc;
+        if (update.type === 'added') {
+            addArticle(doc.data(), doc.id);
+        }
+        if (update.type === 'removed') {
+            deleteArticle(doc.id)
+        }
+    })
 })
 
  
