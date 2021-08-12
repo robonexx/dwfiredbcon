@@ -4,17 +4,17 @@ const authorPost = document.querySelector('.writeAuthor')
 const textPost = document.querySelector('.writeText')
 const form = document.querySelector('form')
 
-const addArticle = (article) => {
+const addArticle = (article, id) => {
 
    /*  const dateTime = article["created.at"].toDate() */
     
     let html = `
-    <div class="article">
+    <li class="article" data-id="${id}">
                 <h2 class="articleTitle">Title: <b>${article.title}</b> Author: <b>${article.author}</b></h2>
                 <div class="articleBody">${article.body}</div>
                 <button class="deleteBtn">Delete</button>
                
-    </div>
+    </li>
     `;
     /* <span class="time">${dateTime}</span> */
 
@@ -25,8 +25,7 @@ db.collection('articles').get().then((snapshot) => {
       // the data 
     
     snapshot.docs.forEach(doc => {
-        addArticle(doc.data());
-        console.log(doc.data()) 
+        addArticle(doc.data(), doc.id);
     })
 
 }).catch(err => {
@@ -53,3 +52,12 @@ form.addEventListener('submit', e => {
 }) 
   
   //delete
+articlesList.addEventListener('click', e => {
+    if (e.target.tagName === 'BUTTON') {
+        const id = e.target.parentElement.getAttribute('data-id')
+        console.log(id)
+        db.collection('articles').doc(id).delete().then(() => {
+            console.log('article deleted')
+        });
+    }
+});
