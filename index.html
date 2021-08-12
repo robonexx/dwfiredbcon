@@ -16,17 +16,17 @@
         src=""
         alt=""
         /> -->
-        <form class="Form">
-            <div class="FormWrapper">
+        <form class="articleForm">
+            <div class="formWrapper">
                 <label htmlFor="fileInput">
                     <h4 class="icon">+</h4>
                 </label>
                 <input type="file" id="fileInput"/>
-                <input type="text" placeholder="title" class="writeTitle" />
-                <input type="text" placeholder="author" class="writeAuthor" />
+                <input type="text" placeholder="title" class="writeTitle" id="title"/>
+                <input type="text" placeholder="author" class="writeAuthor" id="author" />
             </div>
             <div class="FormWrapper">
-                <textarea name="writeText" type="text" placeholder="Write here..." class="writeInput writeText" >
+                <textarea name="writeText" type="text" placeholder="Write here..." id="textBody" class="writeInput writeText" >
 
                 </textarea>
             </div>
@@ -52,7 +52,7 @@
   // Your web app's Firebase configuration
   var firebaseConfig = {
       
-    
+   
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);

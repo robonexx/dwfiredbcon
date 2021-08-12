@@ -112,7 +112,12 @@ body {
     background: #26495c;
     color: #e5e5dc;
     padding: 4px 8px;
+    border-radius: 5px;
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.7));
+  }
+
+  .writeBtn:hover {
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
   }
 
   /* article layout */
@@ -129,3 +134,17 @@ body {
   span {
       color: #3a3a3a;
   }
+
+.deleteBtn {
+  padding: 4px 8px;
+  outline: none;
+  background: tomato;
+  color: #282828;
+  border: none;
+  filter: drop-shadow(3px 3px 1px rgba(0,0,0,0.7));
+  border-radius: 5px;
+}
+
+.deleteBtn:hover {
+  filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.14));
+}
