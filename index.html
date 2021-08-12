@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daily writing firebase db</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+        <h1>Write New Article</h1>
+        <div class="writeWrapper">
+       <!--  <img 
+        class="writeImg"
+        src=""
+        alt=""
+        /> -->
+        <form class="Form">
+            <div class="FormWrapper">
+                <label htmlFor="fileInput">
+                    <h4 class="icon">+</h4>
+                </label>
+                <input type="file" id="fileInput"/>
+                <input type="text" placeholder="title" class="writeTitle" />
+                <input type="text" placeholder="author" class="writeAuthor" />
+            </div>
+            <div class="FormWrapper">
+                <textarea name="writeText" type="text" placeholder="Write here..." class="writeInput writeText" >
+
+                </textarea>
+            </div>
+            <button class="writeBtn" type="submit">New Article</button>
+        </form>
+        </div>
+
+    <!-- db bottom -->
+    
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore()
+</script>
+    <script src="app.js"></script>
+</body>
+</html>
